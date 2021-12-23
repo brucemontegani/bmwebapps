@@ -12,8 +12,13 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "<h1>This is the home page.</h1>")
 }
 
+func About(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "<h1>This is the about page.</h1>")
+}
+
 func main() {
 	http.HandleFunc("/", Home)
+	http.HandleFunc("/about", About)
 
 	fmt.Println("Starting application on port", portNumber)
 	err := http.ListenAndServe(portNumber, nil)
